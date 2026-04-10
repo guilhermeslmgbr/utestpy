@@ -1,5 +1,6 @@
 from testcase import TestCase
 from testresult import TestResult
+from testcasetest import TestCaseTest
 
 
 class MyTest(TestCase):
@@ -24,13 +25,29 @@ class MyTest(TestCase):
 
 result = TestResult()
 
-test = MyTest("test_a")
+test = TestCaseTest("test_result_success_run")
 test.run(result)
 
-test = MyTest("test_b")
+test = TestCaseTest("test_result_failure_run")
 test.run(result)
 
-test = MyTest("test_c")
+test = TestCaseTest("test_result_error_run")
+test.run(result)
+
+test = TestCaseTest("test_result_multiple_run")
+test.run(result)
+
+
+test = TestCaseTest("test_was_set_up")
+test.run(result)
+
+test = TestCaseTest("test_was_run")
+test.run(result)
+
+test = TestCaseTest("test_was_tear_down")
+test.run(result)
+
+test = TestCaseTest("test_template_method")
 test.run(result)
 
 print(result.summary())
@@ -39,3 +56,5 @@ print(result.summary())
 # definindo o set_up específico da classe(implementando da classe pai que permite sua implementação),
 # definindo os casos de teste específicos da classe. (test_a, test_b, test_c)
 # depois para cada teste que é feito ele instancia uma classe dessa e roda o run(que é da classe pai e faz a rotina de teste)
+# dessa vez para cada caso do stub
+# estamos aqui testando os casos de teste agora
