@@ -1,4 +1,5 @@
 from testcase import TestCase
+from testresult import TestResult
 
 
 class MyTest(TestCase):
@@ -21,15 +22,18 @@ class MyTest(TestCase):
         print("tear_down")
 
 
-# declaração de classe para cada caso de teste que será testado e execução da rotina de teste para cada um deles
+result = TestResult()
+
 test = MyTest("test_a")
-test.run()
+test.run(result)
 
 test = MyTest("test_b")
-test.run()
+test.run(result)
 
 test = MyTest("test_c")
-test.run()
+test.run(result)
+
+print(result.summary())
 
 # a classe MyTest está herdando os métodos da template class TestCase,
 # definindo o set_up específico da classe(implementando da classe pai que permite sua implementação),
