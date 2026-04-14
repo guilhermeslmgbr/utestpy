@@ -27,25 +27,5 @@ class MyTest(TestCase):
         print("tear_down")
 
 
-loader = TestLoader()
-test_case_suite = loader.make_suite(TestCaseTest)
-test_suite_suite = loader.make_suite(TestSuiteTest)
-test_load_suite = loader.make_suite(TestLoaderTest)
-
-suite = TestSuite()
-suite.add_test(test_case_suite)
-suite.add_test(test_suite_suite)
-suite.add_test(test_load_suite)
-
-runner = TestRunner()
-runner.run(suite)
 
 
-
-
-# a classe MyTest está herdando os métodos da template class TestCase,
-# definindo o set_up específico da classe(implementando da classe pai que permite sua implementação),
-# definindo os casos de teste específicos da classe. (test_a, test_b, test_c)
-# depois para cada teste que é feito ele instancia uma classe dessa e roda o run(que é da classe pai e faz a rotina de teste)
-# dessa vez para cada caso do stub
-# estamos aqui testando os casos de teste agora
